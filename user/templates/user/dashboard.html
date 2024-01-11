@@ -1,0 +1,28 @@
+{% extends "user/base.html" %} 
+{% load static %} 
+{% block title %}Join PANDA{% endblock title %} 
+{% block body %}
+
+<div class="container-fluid h-100">
+  <div class="row">
+    <div class="col-md-8">
+      <img src="{% static "./img/banner.png" %}" alt="" class="img-fluid w-100">
+    </div>
+    <div class="col-md-4 p-3">
+      <h1 class="my-3 text-primary text-center">Welcome to PANDA</h1>
+      <div class="capsule px-5 py-5">
+        {% if request.user.is_authenticated %}
+           <div class="text-center">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" height="200" width="200">
+            <h1>Profile Page</h1>
+            <h2 class="text-success mb-5">{{user.email}}</h2>
+            <button class="btn btn-secondary btn-lg px-3 py-2 my-3 w-100"><a class="nav-link text-light" href="{% url "changepassword" %}">Change Password</a></button>
+           </div>
+      {% endif %}
+      </div>
+      <button class="btn btn-danger btn-lg px-3 py-2 my-3 w-100"><a class="nav-link text-light" href="{% url "logout" %}">Signout</a></button>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
