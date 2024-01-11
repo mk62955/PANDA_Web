@@ -131,6 +131,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+
 
 # Load environment variables from .env file
 load_dotenv()
